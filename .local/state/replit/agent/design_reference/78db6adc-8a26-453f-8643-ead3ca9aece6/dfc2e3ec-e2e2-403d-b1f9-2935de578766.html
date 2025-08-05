@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGICONTROL - Projeto Coruja | Proteção Inteligente para Sua Família</title>
+    <meta name="description" content="Projeto Coruja da AGICONTROL combina IPS avançado e controle parental intuitivo para proteger sua família no mundo digital.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coruja-blue': '#1E3A8A',
+                        'coruja-red': '#E55056',
+                        'coruja-white': '#FFFFFF',
+                        'coruja-gray': '#F8FAFC',
+                        'coruja-dark': '#334155'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
+                        'slide-in': 'slide-in 0.6s ease-out',
+                        'fade-in': 'fade-in 0.8s ease-out'
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Three.js for 3D Elements -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Chart.js for Interactive Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes slide-in {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
+        }
+        
+        .particle-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #E55056;
+            border-radius: 50%;
+            animation: particle-float 4s linear infinite;
+        }
+        
+        @keyframes particle-float {
+            0% { 
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-100vh) translateX(20px);
+                opacity: 0;
+            }
+        }
+        
+        .owl-container {
+            perspective: 1000px;
+        }
+        
+        .owl-3d {
+            transform-style: preserve-3d;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #E55056, transparent);
+            height: 2px;
+            width: 100px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body class="font-poppins bg-coruja-white text-coruja-dark smooth-scroll" data-mock="true">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-coruja-blue/95 backdrop-blur-sm z-50 transition-all duration-300" id="navbar">
+        <!-- @COMPONENT: Navigation [responsive, sticky, animated] -->
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMzQjgyRjYiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiPgo8cGF0aCBkPSJNMTIgOEMxNCA4IDE2IDEwIDE2IDEyQzE2IDE0IDE0IDE2IDEyIDE2QzEwIDE2IDggMTQgOCAxMkM4IDEwIDEwIDggMTIgOFoiIGZpbGw9IiNGRkZGRkYiLz4KPHN2ZyB4PSIxNiIgeT0iOCIgd2lkdGg9IjgiIGhlaWdodD0iOCI+CjxjaXJjbGUgY3g9IjQiIGN5PSI0IiByPSI0IiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo8cGF0aCBkPSJNMTIgMTZMMjAgMjBMMTIgMjQiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Projeto Coruja Logo" class="w-10 h-10" data-mock="true">
+                    <span class="text-coruja-white font-bold text-xl">Projeto Coruja</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-coruja-white hover:text-coruja-red transition-colors duration-300 font-medium">Home</a>
+                    <a href="#features" class="text-coruja-white hover:text-coruja-red transition-colors duration-300 font-medium">IPS & Controle</a>
+                    <a href="#about" class="text-coruja-white hover:text-coruja-red transition-colors duration-300 font-medium">Quem Somos</a>
+                    <a href="#contact" class="text-coruja-white hover:text-coruja-red transition-colors duration-300 font-medium">Contato</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="#download" class="bg-coruja-red text-coruja-white px-6 py-2 rounded-full hover:bg-red-600 transition-all duration-300 transform hover:scale-105 font-medium">
+                        Baixar App
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-coruja-white text-2xl" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 pb-4" id="mobile-menu">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="text-coruja-white hover:text-coruja-red transition-colors duration-300">Home</a>
+                    <a href="#features" class="text-coruja-white hover:text-coruja-red transition-colors duration-300">IPS & Controle</a>
+                    <a href="#about" class="text-coruja-white hover:text-coruja-red transition-colors duration-300">Quem Somos</a>
+                    <a href="#contact" class="text-coruja-white hover:text-coruja-red transition-colors duration-300">Contato</a>
+                    <a href="#download" class="bg-coruja-red text-coruja-white px-4 py-2 rounded-full text-center">Baixar App</a>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: Navigation -->
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen hero-gradient relative overflow-hidden flex items-center">
+        <!-- @COMPONENT: HeroSection [3D owl, particles, animated CTA] -->
+        <div class="particle-container" id="particles-container"></div>
+        
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-coruja-white space-y-8 animate-fade-in">
+                    <div class="space-y-4">
+                        <span class="text-coruja-red font-semibold text-lg">AGICONTROL APRESENTA</span>
+                        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight">
+                            Projeto <span class="text-coruja-red">Coruja</span>
+                        </h1>
+                        <div class="section-divider"></div>
+                    </div>
+                    
+                    <p class="text-xl lg:text-2xl font-medium opacity-90 leading-relaxed">
+                        Proteção Inteligente, Controle com Cuidado. A solução completa que une segurança avançada e controle parental intuitivo.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#download" class="bg-coruja-red text-coruja-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">
+                            <i class="fas fa-download mr-2"></i>
+                            Baixe Agora - Grátis
+                        </a>
+                        <a href="#features" class="border-2 border-coruja-white text-coruja-white px-8 py-4 rounded-full font-bold text-lg hover:bg-coruja-white hover:text-coruja-blue transition-all duration-300 text-center">
+                            <i class="fas fa-play mr-2"></i>
+                            Ver Demo
+                        </a>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="flex items-center space-x-8 pt-8 opacity-80">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-shield text-coruja-red text-2xl"></i>
+                            <span class="font-medium">100% Seguro</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-users text-coruja-red text-2xl"></i>
+                            <span class="font-medium">+10k Famílias</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-star text-coruja-red text-2xl"></i>
+                            <span class="font-medium">4.8/5 Avaliação</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3D Owl Container -->
+                <div class="owl-container flex justify-center items-center">
+                    <div class="owl-3d relative">
+                        <!-- Placeholder for 3D Owl Model -->
+                        <div class="w-80 h-80 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-2xl" id="owl-placeholder">
+                            <i class="fas fa-crow text-coruja-white text-8xl animate-pulse-soft"></i>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-4 -right-4 w-8 h-8 bg-coruja-red rounded-full animate-float"></div>
+                        <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-coruja-white rounded-full animate-float" style="animation-delay: 1s;"></div>
+                        <div class="absolute top-1/2 -left-8 w-4 h-4 bg-coruja-red rounded-full animate-float" style="animation-delay: 2s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-coruja-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+        <!-- @END_COMPONENT: HeroSection -->
+    </section>
+
+    <!-- Features Preview -->
+    <section class="py-20 bg-coruja-gray">
+        <!-- @COMPONENT: FeaturesPreview [animated cards, hover effects] -->
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-coruja-blue mb-4">Proteção Completa para Sua Família</h2>
+                <div class="section-divider mb-6"></div>
+                <p class="text-xl text-coruja-dark max-w-3xl mx-auto">
+                    Combine a segurança avançada do IPS com o controle parental mais inteligente do mercado.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- IPS Feature -->
+                <div class="card-hover bg-coruja-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-coruja-blue rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-shield-alt text-coruja-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-coruja-blue mb-4 text-center">IPS Avançado</h3>
+                    <p class="text-coruja-dark mb-6 text-center leading-relaxed">
+                        Bloqueio em tempo real de malware, rastreadores e conexões suspeitas com inteligência artificial.
+                    </p>
+                    <div class="flex justify-center">
+                        <span class="bg-coruja-red text-coruja-white px-4 py-2 rounded-full text-sm font-medium">
+                            Proteção 24/7
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Parental Control Feature -->
+                <div class="card-hover bg-coruja-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-coruja-red rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-users-cog text-coruja-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-coruja-blue mb-4 text-center">Controle Parental</h3>
+                    <p class="text-coruja-dark mb-6 text-center leading-relaxed">
+                        Monitore redes sociais, controle tempo de tela e receba relatórios detalhados sobre atividades online.
+                    </p>
+                    <div class="flex justify-center">
+                        <span class="bg-coruja-blue text-coruja-white px-4 py-2 rounded-full text-sm font-medium">
+                            Controle Total
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Real-time Monitoring -->
+                <div class="card-hover bg-coruja-white p-8 rounded-2xl shadow-lg border border-gray-100 md:col-span-2 lg:col-span-1">
+                    <div class="w-16 h-16 bg-gradient-to-br from-coruja-blue to-coruja-red rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-chart-line text-coruja-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-coruja-blue mb-4 text-center">Relatórios Inteligentes</h3>
+                    <p class="text-coruja-dark mb-6 text-center leading-relaxed">
+                        Análises detalhadas, alertas instantâneos e insights sobre o comportamento digital da família.
+                    </p>
+                    <div class="flex justify-center">
+                        <span class="bg-gradient-to-r from-coruja-blue to-coruja-red text-coruja-white px-4 py-2 rounded-full text-sm font-medium">
+                            Insights IA
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: FeaturesPreview -->
+    </section>
+
+    <!-- IPS & Parental Control Detailed Section -->
+    <section id="features" class="py-20 bg-coruja-white">
+        <!-- @COMPONENT: DetailedFeatures [interactive sliders, 3D elements, comparison table] -->
+        <div class="container mx-auto px-4">
+            <!-- IPS Section -->
+            <div class="mb-20">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-4xl font-bold text-coruja-blue mb-4">Sistema IPS de Última Geração</h2>
+                            <div class="section-divider mb-6"></div>
+                            <p class="text-xl text-coruja-dark leading-relaxed">
+                                Nossa tecnologia de Prevenção de Intrusão (IPS) monitora e bloqueia ameaças em tempo real, 
+                                protegendo todos os dispositivos da sua família contra malware, phishing e ataques cibernéticos.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="bg-coruja-gray p-6 rounded-xl">
+                                <h4 class="font-bold text-coruja-blue mb-2">Bloqueio Inteligente</h4>
+                                <p class="text-sm text-coruja-dark">IA avançada identifica e bloqueia ameaças desconhecidas</p>
+                            </div>
+                            <div class="bg-coruja-gray p-6 rounded-xl">
+                                <h4 class="font-bold text-coruja-blue mb-2">Proteção 24/7</h4>
+                                <p class="text-sm text-coruja-dark">Monitoramento contínuo sem impacto na performance</p>
+                            </div>
+                        </div>
+                        
+                        <button class="bg-coruja-blue text-coruja-white px-8 py-4 rounded-full font-bold hover:bg-blue-800 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-play mr-2"></i>
+                            Ver IPS em Ação
+                        </button>
+                    </div>
+                    
+                    <!-- 3D Shield Visualization -->
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <!-- Mock 3D Shield with particle effects -->
+                            <div class="w-72 h-72 bg-gradient-to-br from-coruja-blue to-blue-600 rounded-full flex items-center justify-center shadow-2xl transform hover:rotate-3 transition-transform duration-500" id="shield-3d">
+                                <i class="fas fa-shield-alt text-coruja-white text-6xl"></i>
+                            </div>
+                            
+                            <!-- Threat Particles being blocked -->
+                            <div class="absolute inset-0 pointer-events-none">
+                                <div class="absolute top-1/4 left-0 w-3 h-3 bg-coruja-red rounded-full animate-ping"></div>
+                                <div class="absolute top-3/4 right-0 w-2 h-2 bg-coruja-red rounded-full animate-ping" style="animation-delay: 0.5s;"></div>
+                                <div class="absolute bottom-1/4 left-1/4 w-2 h-2 bg-coruja-red rounded-full animate-ping" style="animation-delay: 1s;"></div>
+                            </div>
+                            
+                            <!-- Blocked Counter -->
+                            <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-coruja-red text-coruja-white px-4 py-2 rounded-full font-bold text-sm" data-mock="true">
+                                <span id="blocked-counter">1,247</span> Ameaças Bloqueadas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Parental Control Section with Interactive Elements -->
+            <div class="mb-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-coruja-blue mb-4">Controle Parental Dinâmico</h2>
+                    <div class="section-divider mb-6"></div>
+                    <p class="text-xl text-coruja-dark max-w-3xl mx-auto">
+                        Monitore, controle e proteja seus filhos no mundo digital com ferramentas intuitivas e relatórios inteligentes.
+                    </p>
+                </div>
+                
+                <!-- Interactive Time Control Slider -->
+                <div class="bg-coruja-gray p-8 rounded-2xl mb-12">
+                    <h3 class="text-2xl font-bold text-coruja-blue mb-6 text-center">Controle de Tempo de Tela</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-coruja-dark font-medium mb-2">Tempo Diário Permitido</label>
+                                <input type="range" id="screen-time-slider" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer" 
+                                       min="0" max="12" value="4" data-implementation="Should update 3D clock in real-time">
+                                <div class="flex justify-between text-sm text-coruja-dark mt-1">
+                                    <span>0h</span>
+                                    <span>6h</span>
+                                    <span>12h</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-coruja-white p-4 rounded-xl">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium text-coruja-dark">Tempo Atual:</span>
+                                    <span class="text-2xl font-bold text-coruja-blue" id="current-time" data-bind="screenTime">4h 00m</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-coruja-white rounded-lg">
+                                    <span class="font-medium text-coruja-dark">Jogos</span>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm text-gray-500">1h 30m</span>
+                                        <div class="w-4 h-4 bg-coruja-red rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-coruja-white rounded-lg">
+                                    <span class="font-medium text-coruja-dark">Redes Sociais</span>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm text-gray-500">2h 15m</span>
+                                        <div class="w-4 h-4 bg-coruja-blue rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-coruja-white rounded-lg">
+                                    <span class="font-medium text-coruja-dark">Educativo</span>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm text-gray-500">15m</span>
+                                        <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 3D Clock Visualization -->
+                        <div class="flex justify-center">
+                            <div class="relative">
+                                <div class="w-64 h-64 bg-gradient-to-br from-coruja-white to-gray-200 rounded-full border-8 border-coruja-blue flex items-center justify-center shadow-xl" id="time-clock-3d">
+                                    <div class="text-center">
+                                        <div class="text-4xl font-bold text-coruja-blue mb-2" id="clock-display">4:00</div>
+                                        <div class="text-sm text-coruja-dark">Horas Restantes</div>
+                                    </div>
+                                    
+                                    <!-- Clock Hands (Mock) -->
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-1 h-16 bg-coruja-red rounded-full transform origin-bottom rotate-45 absolute" id="hour-hand"></div>
+                                        <div class="w-0.5 h-20 bg-coruja-blue rounded-full transform origin-bottom rotate-90 absolute" id="minute-hand"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Blocking Gallery -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-coruja-blue mb-6 text-center">Bloqueio por Categorias</h3>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <!-- @MAP: categories.map(category => ( -->
+                        <div class="category-card bg-coruja-white p-6 rounded-xl text-center cursor-pointer hover:bg-coruja-gray transition-all duration-300 border-2 border-transparent hover:border-coruja-red" data-category="social">
+                            <i class="fab fa-instagram text-3xl text-coruja-blue mb-3"></i>
+                            <p class="font-medium text-coruja-dark">Redes Sociais</p>
+                            <div class="mt-2">
+                                <div class="w-6 h-6 bg-green-500 rounded-full mx-auto"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card bg-coruja-white p-6 rounded-xl text-center cursor-pointer hover:bg-coruja-gray transition-all duration-300 border-2 border-transparent hover:border-coruja-red" data-category="gaming">
+                            <i class="fas fa-gamepad text-3xl text-coruja-blue mb-3"></i>
+                            <p class="font-medium text-coruja-dark">Jogos</p>
+                            <div class="mt-2">
+                                <div class="w-6 h-6 bg-coruja-red rounded-full mx-auto"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card bg-coruja-white p-6 rounded-xl text-center cursor-pointer hover:bg-coruja-gray transition-all duration-300 border-2 border-transparent hover:border-coruja-red" data-category="adult">
+                            <i class="fas fa-exclamation-triangle text-3xl text-coruja-blue mb-3"></i>
+                            <p class="font-medium text-coruja-dark">Conteúdo Adulto</p>
+                            <div class="mt-2">
+                                <div class="w-6 h-6 bg-coruja-red rounded-full mx-auto"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card bg-coruja-white p-6 rounded-xl text-center cursor-pointer hover:bg-coruja-gray transition-all duration-300 border-2 border-transparent hover:border-coruja-red" data-category="shopping">
+                            <i class="fas fa-shopping-cart text-3xl text-coruja-blue mb-3"></i>
+                            <p class="font-medium text-coruja-dark">Compras</p>
+                            <div class="mt-2">
+                                <div class="w-6 h-6 bg-yellow-500 rounded-full mx-auto"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card bg-coruja-white p-6 rounded-xl text-center cursor-pointer hover:bg-coruja-gray transition-all duration-300 border-2 border-transparent hover:border-coruja-red" data-category="streaming">
+                            <i class="fas fa-video text-3xl text-coruja-blue mb-3"></i>
+                            <p class="font-medium text-coruja-dark">Streaming</p>
+                            <div class="mt-2">
+                                <div class="w-6 h-6 bg-green-500 rounded-full mx-auto"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card bg-coruja-white p-6 rounded-xl text-center cursor-pointer hover:bg-coruja-gray transition-all duration-300 border-2 border-transparent hover:border-coruja-red" data-category="education">
+                            <i class="fas fa-graduation-cap text-3xl text-coruja-blue mb-3"></i>
+                            <p class="font-medium text-coruja-dark">Educação</p>
+                            <div class="mt-2">
+                                <div class="w-6 h-6 bg-green-500 rounded-full mx-auto"></div>
+                            </div>
+                        </div>
+                        <!-- @END_MAP )) -->
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <p class="text-coruja-dark"><span class="inline-block w-3 h-3 bg-green-500 rounded-full mr-2"></span>Permitido <span class="inline-block w-3 h-3 bg-yellow-500 rounded-full mr-2 ml-4"></span>Limitado <span class="inline-block w-3 h-3 bg-coruja-red rounded-full mr-2 ml-4"></span>Bloqueado</p>
+                    </div>
+                </div>
+                
+                <!-- Usage Statistics Chart -->
+                <div class="bg-coruja-gray p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-coruja-blue mb-6 text-center">Relatórios de Uso</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <canvas id="usage-chart" width="400" height="200" data-implementation="Implement interactive Chart.js graph"></canvas>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-coruja-white p-4 rounded-xl">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-medium text-coruja-dark">Tempo Total Hoje</span>
+                                    <span class="text-xl font-bold text-coruja-blue" data-mock="true">3h 45m</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-coruja-blue h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-coruja-white p-4 rounded-xl">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-medium text-coruja-dark">Apps Mais Usados</span>
+                                </div>
+                                <div class="space-y-2" data-mock="true">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-coruja-dark">Instagram</span>
+                                        <span class="text-sm font-medium text-coruja-blue">1h 20m</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-coruja-dark">YouTube</span>
+                                        <span class="text-sm font-medium text-coruja-blue">1h 05m</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-coruja-dark">WhatsApp</span>
+                                        <span class="text-sm font-medium text-coruja-blue">45m</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-coruja-white p-4 rounded-xl">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-medium text-coruja-dark">Alertas de Segurança</span>
+                                    <span class="bg-coruja-red text-coruja-white px-2 py-1 rounded-full text-xs font-medium" data-mock="true">3 Novos</span>
+                                </div>
+                                <p class="text-sm text-coruja-dark">Tentativa de acesso a site bloqueado detectada às 14:30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comparison Table -->
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-coruja-blue mb-8 text-center">Compare com a Concorrência</h3>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full bg-coruja-white rounded-2xl shadow-lg overflow-hidden">
+                        <thead class="bg-coruja-blue text-coruja-white">
+                            <tr>
+                                <th class="px-6 py-4 text-left font-bold">Funcionalidades</th>
+                                <th class="px-6 py-4 text-center font-bold">Projeto Coruja</th>
+                                <th class="px-6 py-4 text-center font-bold">Google Family Link</th>
+                                <th class="px-6 py-4 text-center font-bold">Bark</th>
+                                <th class="px-6 py-4 text-center font-bold">mSpy</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200" data-mock="true">
+                            <tr class="hover:bg-coruja-gray transition-colors duration-200">
+                                <td class="px-6 py-4 font-medium text-coruja-dark">IPS Integrado</td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-times text-coruja-red text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-times text-coruja-red text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-times text-coruja-red text-xl"></i></td>
+                            </tr>
+                            <tr class="hover:bg-coruja-gray transition-colors duration-200">
+                                <td class="px-6 py-4 font-medium text-coruja-dark">Monitoramento em Tempo Real</td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            </tr>
+                            <tr class="hover:bg-coruja-gray transition-colors duration-200">
+                                <td class="px-6 py-4 font-medium text-coruja-dark">Controle Personalizado</td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-minus text-yellow-500 text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            </tr>
+                            <tr class="hover:bg-coruja-gray transition-colors duration-200">
+                                <td class="px-6 py-4 font-medium text-coruja-dark">VPN Integrada</td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-times text-coruja-red text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-times text-coruja-red text-xl"></i></td>
+                                <td class="px-6 py-4 text-center"><i class="fas fa-times text-coruja-red text-xl"></i></td>
+                            </tr>
+                            <tr class="hover:bg-coruja-gray transition-colors duration-200">
+                                <td class="px-6 py-4 font-medium text-coruja-dark">Preço Mensal</td>
+                                <td class="px-6 py-4 text-center font-bold text-coruja-blue">R$ 19,90</td>
+                                <td class="px-6 py-4 text-center text-coruja-dark">Grátis</td>
+                                <td class="px-6 py-4 text-center text-coruja-dark">R$ 49,90</td>
+                                <td class="px-6 py-4 text-center text-coruja-dark">R$ 89,90</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: DetailedFeatures -->
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-coruja-blue text-coruja-white">
+        <!-- @COMPONENT: AboutSection [founder stories, timeline, company values] -->
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">A Origem do Projeto Coruja</h2>
+                <div class="section-divider bg-coruja-red mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto opacity-90">
+                    Inspirados pela necessidade de proteger suas próprias famílias, Wililian e Carlos criaram uma solução que combina tecnologia avançada com cuidado humano.
+                </p>
+            </div>
+            
+            <!-- Founders Section -->
+            <div class="grid md:grid-cols-2 gap-12 mb-20">
+                <!-- Wililian -->
+                <div class="text-center">
+                    <!-- Modern family photo with father and child using tablet safely -->
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" alt="Wililian - Co-fundador" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-4 border-coruja-red shadow-xl" data-mock="true">
+                    <h3 class="text-2xl font-bold mb-2">Wililian Silva</h3>
+                    <p class="text-coruja-red font-medium mb-4">Co-fundador & CTO</p>
+                    <p class="opacity-90 leading-relaxed">
+                        Especialista em segurança cibernética com mais de 15 anos de experiência. Pai de dois filhos, criou o Projeto Coruja para proteger sua própria família no mundo digital.
+                    </p>
+                </div>
+                
+                <!-- Carlos -->
+                <div class="text-center">
+                    <!-- Professional businessman in tech environment -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" alt="Carlos - Co-fundador" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-4 border-coruja-red shadow-xl" data-mock="true">
+                    <h3 class="text-2xl font-bold mb-2">Carlos Mendes</h3>
+                    <p class="text-coruja-red font-medium mb-4">Co-fundador & CEO</p>
+                    <p class="opacity-90 leading-relaxed">
+                        Empreendedor serial e especialista em produtos digitais. Acredita que a tecnologia deve servir às famílias, não controlá-las. Lidera a visão estratégica da AGICONTROL.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Company Story -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-16">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold mb-4">Nossa História</h3>
+                    <div class="section-divider bg-coruja-red"></div>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg leading-relaxed mb-6 opacity-90">
+                        A AGICONTROL nasceu da experiência pessoal de dois pais preocupados com a segurança digital de suas famílias. 
+                        Wililian e Carlos perceberam que as soluções existentes eram ou muito complexas ou muito limitadas.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-6 opacity-90">
+                        O Projeto Coruja simboliza a vigilância protetora de uma coruja - sempre alerta, mas nunca intrusiva. 
+                        Combinamos a tecnologia de ponta em segurança cibernética com a intuição parental, criando uma solução 
+                        que protege sem limitar o crescimento digital das crianças.
+                    </p>
+                    <p class="text-lg leading-relaxed opacity-90">
+                        Hoje, protegemos mais de 10.000 famílias em todo o Brasil, mantendo nossa promessa de segurança inteligente 
+                        e controle com cuidado.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Mission, Vision, Values -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-coruja-red rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bullseye text-coruja-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Missão</h3>
+                    <p class="opacity-90 leading-relaxed">
+                        Proteger o bem-estar digital de crianças, adolescentes e idosos com tecnologia avançada e interface intuitiva.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-coruja-red rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-eye text-coruja-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Visão</h3>
+                    <p class="opacity-90 leading-relaxed">
+                        Ser líder em controle parental inteligente, promovendo um ambiente digital seguro e saudável para todas as famílias.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-coruja-red rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-coruja-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Valores</h3>
+                    <p class="opacity-90 leading-relaxed">
+                        Segurança, inovação, empatia e transparência guiam cada decisão que tomamos no desenvolvimento de nossos produtos.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: AboutSection -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-coruja-gray">
+        <!-- @COMPONENT: ContactSection [form with validation, social links, support info] -->
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-coruja-blue mb-4">Entre em Contato</h2>
+                <div class="section-divider mb-6"></div>
+                <p class="text-xl text-coruja-dark max-w-3xl mx-auto">
+                    Nossa equipe está pronta para ajudar você a proteger sua família. Entre em contato para suporte técnico ou dúvidas comerciais.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-coruja-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-coruja-blue mb-6">Envie sua mensagem</h3>
+                    
+                    <form class="space-y-6" data-implementation="Add form validation and submission handling">
+                        <div>
+                            <label for="name" class="block text-coruja-dark font-medium mb-2">Nome Completo</label>
+                            <input type="text" id="name" name="name" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coruja-blue focus:border-transparent transition-all duration-300" 
+                                   placeholder="Seu nome completo" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-coruja-dark font-medium mb-2">E-mail</label>
+                            <input type="email" id="email" name="email" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coruja-blue focus:border-transparent transition-all duration-300" 
+                                   placeholder="seu@email.com" required>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-coruja-dark font-medium mb-2">Assunto</label>
+                            <select id="subject" name="subject" 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coruja-blue focus:border-transparent transition-all duration-300" required>
+                                <option value="">Selecione um assunto</option>
+                                <option value="support">Suporte Técnico</option>
+                                <option value="sales">Informações Comerciais</option>
+                                <option value="partnership">Parcerias</option>
+                                <option value="other">Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-coruja-dark font-medium mb-2">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coruja-blue focus:border-transparent transition-all duration-300 resize-none" 
+                                      placeholder="Digite sua mensagem aqui..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-coruja-blue text-coruja-white py-4 rounded-lg font-bold text-lg hover:bg-blue-800 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <!-- Support Info -->
+                    <div class="bg-coruja-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-coruja-blue mb-6">Suporte Rápido</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-coruja-blue rounded-full flex items-center justify-center">
+                                    <i class="fas fa-headset text-coruja-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-coruja-dark">Chat Online</h4>
+                                    <p class="text-coruja-dark opacity-75">Disponível 24/7 no aplicativo</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-coruja-red rounded-full flex items-center justify-center">
+                                    <i class="fas fa-envelope text-coruja-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-coruja-dark">E-mail</h4>
+                                    <p class="text-coruja-dark opacity-75" data-mock="true">suporte@projetocoruja.com.br</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-whatsapp text-coruja-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-coruja-dark">WhatsApp</h4>
+                                    <p class="text-coruja-dark opacity-75" data-mock="true">(11) 9 9999-9999</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="bg-coruja-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-coruja-blue mb-6">Siga-nos</h3>
+                        
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-facebook-f text-coruja-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-instagram text-coruja-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-twitter text-coruja-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-linkedin-in text-coruja-white text-xl"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-coruja-gray rounded-lg">
+                            <p class="text-sm text-coruja-dark">
+                                <i class="fas fa-info-circle text-coruja-blue mr-2"></i>
+                                Acompanhe nossas dicas de segurança digital e novidades do produto.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Quick Links -->
+                    <div class="bg-coruja-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-coruja-blue mb-6">Perguntas Frequentes</h3>
+                        
+                        <div class="space-y-3">
+                            <a href="#" class="block p-3 rounded-lg hover:bg-coruja-gray transition-colors duration-300">
+                                <h4 class="font-medium text-coruja-dark">Como instalar o Projeto Coruja?</h4>
+                                <p class="text-sm text-coruja-dark opacity-75">Guia completo de instalação</p>
+                            </a>
+                            <a href="#" class="block p-3 rounded-lg hover:bg-coruja-gray transition-colors duration-300">
+                                <h4 class="font-medium text-coruja-dark">Preços e planos disponíveis</h4>
+                                <p class="text-sm text-coruja-dark opacity-75">Conheça nossos planos</p>
+                            </a>
+                            <a href="#" class="block p-3 rounded-lg hover:bg-coruja-gray transition-colors duration-300">
+                                <h4 class="font-medium text-coruja-dark">Configurações avançadas</h4>
+                                <p class="text-sm text-coruja-dark opacity-75">Personalize sua experiência</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: ContactSection -->
+    </section>
+
+    <!-- Download/CTA Section -->
+    <section id="download" class="py-20 hero-gradient text-coruja-white">
+        <!-- @COMPONENT: DownloadSection [app store buttons, pricing, trial info] -->
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-5xl font-bold mb-6">Proteja Sua Família Hoje</h2>
+                <div class="section-divider bg-coruja-red mb-8"></div>
+                <p class="text-2xl mb-12 opacity-90">
+                    Baixe o Projeto Coruja e tenha 10 dias grátis para experimentar nossa proteção completa.
+                </p>
+                
+                <!-- Pricing Cards -->
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <!-- Basic Plan -->
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+                        <h3 class="text-2xl font-bold mb-4">Plano Básico</h3>
+                        <div class="text-4xl font-bold mb-2">R$ 19,90</div>
+                        <div class="text-coruja-red mb-6">por mês</div>
+                        <ul class="space-y-3 mb-8 text-left">
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Até 3 dispositivos</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>IPS básico</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Controle parental</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Relatórios semanais</li>
+                        </ul>
+                        <button class="w-full bg-coruja-white text-coruja-blue py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">
+                            Escolher Plano
+                        </button>
+                    </div>
+                    
+                    <!-- Premium Plan (Popular) -->
+                    <div class="bg-coruja-red/20 backdrop-blur-sm p-8 rounded-2xl border-2 border-coruja-red relative transform scale-105">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-coruja-red text-coruja-white px-6 py-2 rounded-full text-sm font-bold">
+                            MAIS POPULAR
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Plano Premium</h3>
+                        <div class="text-4xl font-bold mb-2">R$ 39,90</div>
+                        <div class="text-coruja-red mb-6">por mês</div>
+                        <ul class="space-y-3 mb-8 text-left">
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Dispositivos ilimitados</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>IPS avançado</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Controle total</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>VPN integrada</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Relatórios em tempo real</li>
+                        </ul>
+                        <button class="w-full bg-coruja-red text-coruja-white py-3 rounded-lg font-bold hover:bg-red-600 transition-colors duration-300">
+                            Escolher Plano
+                        </button>
+                    </div>
+                    
+                    <!-- Family Plan -->
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+                        <h3 class="text-2xl font-bold mb-4">Plano Família</h3>
+                        <div class="text-4xl font-bold mb-2">R$ 59,90</div>
+                        <div class="text-coruja-red mb-6">por mês</div>
+                        <ul class="space-y-3 mb-8 text-left">
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Tudo do Premium</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Até 10 perfis</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Suporte prioritário</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Configuração remota</li>
+                        </ul>
+                        <button class="w-full bg-coruja-white text-coruja-blue py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">
+                            Escolher Plano
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- App Store Buttons -->
+                <div class="flex justify-center space-x-6 mb-12">
+                    <a href="#" class="bg-black text-white px-8 py-4 rounded-lg flex items-center space-x-3 hover:bg-gray-800 transition-colors duration-300" data-mock="true">
+                        <i class="fab fa-google-play text-2xl"></i>
+                        <div class="text-left">
+                            <div class="text-xs">Disponível no</div>
+                            <div class="text-lg font-bold">Google Play</div>
+                        </div>
+                    </a>
+                    <a href="#" class="bg-black text-white px-8 py-4 rounded-lg flex items-center space-x-3 hover:bg-gray-800 transition-colors duration-300" data-mock="true">
+                        <i class="fab fa-chrome text-2xl"></i>
+                        <div class="text-left">
+                            <div class="text-xs">Disponível para</div>
+                            <div class="text-lg font-bold">Chrome OS</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Trial Info -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 max-w-2xl mx-auto">
+                    <h4 class="text-xl font-bold mb-2">🎉 Teste Grátis por 10 Dias</h4>
+                    <p class="opacity-90">
+                        Experimente todos os recursos premium sem compromisso. Cancele a qualquer momento durante o período de teste.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: DownloadSection -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-coruja-dark text-coruja-white">
+        <!-- @COMPONENT: Footer [links, legal info, company details] -->
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiMzQjgyRjYiLz4KPHN2ZyB4PSI2IiB5PSI2IiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiPgo8cGF0aCBkPSJNMTAgNkMxMiA2IDEzIDggMTMgMTBDMTMgMTIgMTIgMTMgMTAgMTNDOCAxMyA2IDEyIDYgMTBDNiA4IDggNiAxMCA2WiIgZmlsbD0iI0ZGRkZGRiIvPgo8c3ZnIHg9IjEyIiB5PSI2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ij4KPGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjQiIGZpbGw9IiNGRkZGRkYiLz4KPC9zdmc+CjxwYXRoIGQ9Ik0xMCAxM0wxNiAxNkwxMCAyMCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cjwvc3ZnPgo=" alt="Projeto Coruja" class="w-8 h-8" data-mock="true">
+                        <span class="font-bold text-xl">Projeto Coruja</span>
+                    </div>
+                    <p class="text-sm opacity-75 leading-relaxed">
+                        AGICONTROL - Proteção inteligente para famílias conectadas. Segurança avançada com controle parental intuitivo.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Produto</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#features" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Funcionalidades</a></li>
+                        <li><a href="#download" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Preços</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Segurança</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Atualizações</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Suporte</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#contact" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Contato</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Guias</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Status do Sistema</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Termos de Uso</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">LGPD</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-coruja-red transition-colors duration-300">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm text-gray-400" data-mock="true">
+                    © 2024 AGICONTROL - Projeto Coruja. Todos os direitos reservados. 
+                    <span class="ml-4">CNPJ: 00.000.000/0001-00</span>
+                </p>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: Footer -->
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        (function() {
+            // TODO: Implement business logic, API calls, or state management
+            
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn?.addEventListener('click', () => {
+                mobileMenu?.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon?.classList.toggle('fa-bars');
+                icon?.classList.toggle('fa-times');
+            });
+            
+            // Smooth Scrolling for Navigation Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Screen Time Slider Interaction
+            const slider = document.getElementById('screen-time-slider');
+            const currentTime = document.getElementById('current-time');
+            const clockDisplay = document.getElementById('clock-display');
+            const hourHand = document.getElementById('hour-hand');
+            const minuteHand = document.getElementById('minute-hand');
+            
+            slider?.addEventListener('input', function() {
+                const hours = parseInt(this.value);
+                if (currentTime) currentTime.textContent = `${hours}h 00m`;
+                if (clockDisplay) clockDisplay.textContent = `${hours}:00`;
+                
+                // Rotate clock hands based on time (mock implementation)
+                if (hourHand && minuteHand) {
+                    const hourRotation = (hours / 12) * 360;
+                    hourHand.style.transform = `rotate(${hourRotation}deg)`;
+                    minuteHand.style.transform = `rotate(0deg)`;
+                }
+            });
+            
+            // Category Card Interactions
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const indicator = this.querySelector('div div');
+                    if (indicator) {
+                        // Toggle between allowed (green), limited (yellow), blocked (red)
+                        if (indicator.classList.contains('bg-green-500')) {
+                            indicator.className = 'w-6 h-6 bg-yellow-500 rounded-full mx-auto';
+                        } else if (indicator.classList.contains('bg-yellow-500')) {
+                            indicator.className = 'w-6 h-6 bg-red-500 rounded-full mx-auto';
+                        } else {
+                            indicator.className = 'w-6 h-6 bg-green-500 rounded-full mx-auto';
+                        }
+                    }
+                });
+            });
+            
+            // Particle Effect Generator
+            function createParticle() {
+                const container = document.getElementById('particles-container');
+                if (!container) return;
+                
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                
+                container.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 5000);
+            }
+            
+            // Create particles periodically
+            setInterval(createParticle, 500);
+            
+            // Blocked Counter Animation
+            const blockedCounter = document.getElementById('blocked-counter');
+            if (blockedCounter) {
+                let count = 1247;
+                setInterval(() => {
+                    count += Math.floor(Math.random() * 3) + 1;
+                    blockedCounter.textContent = count.toLocaleString('pt-BR');
+                }, 3000);
+            }
+            
+            // Form Enhancement
+            const form = document.querySelector('form');
+            const formInputs = document.querySelectorAll('input, select, textarea');
+            
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#1E3A8A';
+                    this.style.boxShadow = '0 0 0 3px rgba(30, 58, 138, 0.1)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = '#D1D5DB';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            form?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // TODO: Implement form submission logic
+                alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+            });
+            
+            // Chart.js Implementation (Mock)
+            const ctx = document.getElementById('usage-chart');
+            if (ctx && typeof Chart !== 'undefined') {
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Jogos', 'Redes Sociais', 'Educativo', 'Streaming', 'Outros'],
+                        datasets: [{
+                            data: [30, 25, 15, 20, 10],
+                            backgroundColor: [
+                                '#E55056',
+                                '#1E3A8A',
+                                '#10B981',
+                                '#F59E0B',
+                                '#8B5CF6'
+                            ],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20,
+                                    usePointStyle: true
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Intersection Observer for Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections for scroll animations
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+            
+            // Navbar Scroll Effect
+            let lastScrollTop = 0;
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    navbar?.classList.add('-translate-y-full');
+                } else {
+                    // Scrolling up
+                    navbar?.classList.remove('-translate-y-full');
+                }
+                
+                // Add background opacity based on scroll
+                if (scrollTop > 50) {
+                    navbar?.classList.add('bg-coruja-blue');
+                    navbar?.classList.remove('bg-coruja-blue/95');
+                } else {
+                    navbar?.classList.add('bg-coruja-blue/95');
+                    navbar?.classList.remove('bg-coruja-blue');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+            
+        })();
+    </script>
+</body>
+</html>
