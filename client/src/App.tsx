@@ -15,6 +15,43 @@ import Contact from "@/pages/contact";
 import Demo from "@/pages/demo";
 import Navigation from "@/components/layout/navigation";
 import Footer from "@/components/layout/footer";
+import { useRef } from "react";
+import OwlIcon from "@/components/ui/owl-icon";
+
+function CustomCursor() {
+  const cursorRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const moveCursor = (e: MouseEvent) => {
+      if (cursorRef.current) {
+        cursorRef.current.style.left = e.clientX + 'px';
+        cursorRef.current.style.top = e.clientY + 'px';
+      }
+    };
+    document.addEventListener('mousemove', moveCursor);
+    return () => document.removeEventListener('mousemove', moveCursor);
+  }, []);
+
+  return (
+    <div
+      ref={cursorRef}
+      style={{
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        width: 16,
+        height: 16,
+        background: 'white',
+        borderRadius: '50%',
+        pointerEvents: 'none',
+        zIndex: 9999,
+        transform: 'translate(-50%, -50%)',
+        transition: 'background 0.2s',
+        mixBlendMode: 'difference',
+      }}
+    />
+  );
+}
 
 function Router() {
   // Initialize advanced animations
@@ -55,6 +92,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="smooth-scroll">
+          <CustomCursor />
 
           <LoadingScreen 
             isLoading={isLoading} 

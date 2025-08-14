@@ -46,31 +46,31 @@ export default function Home() {
             {/* Hero Content */}
             <div className="text-white space-y-8 slide-in-bottom" data-animate>
               <div className="space-y-4" data-animate>
-                <span className="inline-block bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide mb-4 fade-in-scale premium-hover" data-testid="text-brand" data-animate>
-                  🚀 TECNOLOGIA ENTERPRISE
+                <span className="inline-block bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide mb-4" data-testid="text-brand">
+                  SEGURANÇA DIGITAL PARA TODOS
                 </span>
-                <h1 className="text-5xl lg:text-8xl font-extrabold leading-tight text-glow" data-testid="text-hero-title" data-text-reveal>
-                  Projeto Coruja
+                <h1 className="text-5xl lg:text-8xl font-extrabold leading-tight" data-testid="text-hero-title">
+                  Coruja App
                 </h1>
                 <div className="section-divider mb-8" data-animate></div>
               </div>
               
-              <p className="text-xl lg:text-2xl font-medium text-blue-100 leading-relaxed" data-testid="text-hero-subtitle">
-                <span className="text-red-400 font-bold">Proteção Militar</span> + <span className="text-blue-300 font-bold">Controle Inteligente</span>. 
-                A primeira solução que une IPS de nível corporativo com controle parental avançado.
+              <p className="text-xl lg:text-2xl font-medium text-white leading-relaxed" data-testid="text-hero-subtitle">
+                <span className="text-red-400 font-bold">Proteção Total</span> + <span className="text-white font-bold">Controle Inteligente</span>. 
+                A primeira solução que une Proteção Total  de nível corporativo com controle parental avançado.
               </p>
               
               {/* Premium Trust Indicators */}
               <div className="grid grid-cols-3 gap-4 py-6">
-                <div className="glass-effect p-4 rounded-xl text-center">
+                <div className="p-4 rounded-xl text-center border border-white/10 shadow-sm bg-white/5">
                   <div className="text-lg font-bold text-green-400">ISO 27001</div>
                   <div className="text-xs text-blue-200 opacity-80">Certificado</div>
                 </div>
-                <div className="glass-effect p-4 rounded-xl text-center">
+                <div className="p-4 rounded-xl text-center border border-white/10 shadow-sm bg-white/5">
                   <div className="text-lg font-bold text-yellow-400">4.9★</div>
                   <div className="text-xs text-blue-200 opacity-80">App Rating</div>
                 </div>
-                <div className="glass-effect p-4 rounded-xl text-center">
+                <div className="p-4 rounded-xl text-center border border-white/10 shadow-sm bg-white/5">
                   <div className="text-lg font-bold text-blue-400">50K+</div>
                   <div className="text-xs text-blue-200 opacity-80">Famílias</div>
                 </div>
@@ -79,12 +79,12 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4" data-animate>
                 <Link href="#download">
                   <button 
-                    className="luxury-border bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 shadow-2xl premium-hover relative overflow-hidden"
+                    className="bg-red-600 hover:bg-red-700 text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-200 shadow-md"
                     data-testid="button-download"
                     data-magnetic
                     data-cursor="button"
                   >
-                    <span className="relative z-10">
+                    <span>
                       <i className="fas fa-download mr-3"></i>
                       Baixe Agora - Grátis
                     </span>
@@ -92,7 +92,7 @@ export default function Home() {
                 </Link>
                 <Link href="/demo">
                   <button 
-                    className="glass-effect border-2 border-white/30 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300 premium-hover"
+                    className="border-2 border-white/30 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-200 shadow-md"
                     data-testid="button-demo"
                     data-magnetic
                     data-cursor="button"
@@ -134,7 +134,8 @@ export default function Home() {
         {/* Premium Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce opacity-70" data-testid="scroll-indicator">
           <div className="flex flex-col items-center space-y-2 glass-effect p-3 rounded-full">
-            <span className="text-xs text-blue-300 uppercase tracking-wide">Descubra Mais</span>
+            <span className="text-xs text-blue-300 uppercase tracking-wide"></span>
+            <span className="text-xs text-blue-300 uppercase tracking-wide"></span>
             <i className="fas fa-chevron-down text-xl"></i>
           </div>
         </div>
@@ -175,11 +176,11 @@ export default function Home() {
           </div>
           
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 card-hover" data-testid="tech-ips">
+            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 card-hover" data-testid="tech-Proteção Total ">
               <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-2xl">
                 <i className="fas fa-shield-virus text-white text-3xl"></i>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">IPS Militar</h3>
+              <h3 className="text-2xl font-bold mb-4 text-center">Proteção Total</h3>
               <p className="text-white/80 text-center leading-relaxed mb-6">
                 Sistema de Prevenção de Intrusão com algoritmos utilizados em ambientes governamentais e corporativos de alta segurança
               </p>
@@ -196,7 +197,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">IA Comportamental</h3>
               <p className="text-white/80 text-center leading-relaxed mb-6">
-                Inteligência artificial que aprende os padrões da sua família e detecta atividades suspeitas automaticamente
+                Inteligência artificial que aprende os padrões da sua família e detecta atividades suspeitas automaticamente. Guiada por profissionais da saúde mental
               </p>
               <div className="text-center">
                 <span className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/30">
@@ -306,18 +307,18 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-blue-900 mx-auto mb-8"></div>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto" data-testid="text-features-subtitle">
-              Combine a segurança avançada do IPS com o controle parental mais inteligente do mercado
+              Combine a segurança avançada do Proteção Total  com o controle parental mais inteligente do mercado
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* IPS Feature */}
-            <div className="group bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover relative overflow-hidden" data-testid="card-ips">
+            {/* Proteção Total  Feature */}
+            <div className="group bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover relative overflow-hidden" data-testid="card-Proteção Total ">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
               <div className="w-20 h-20 bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-xl group-hover:scale-110 transition-transform duration-300">
                 <i className="fas fa-shield-alt text-white text-3xl"></i>
               </div>
-              <h3 className="text-2xl font-bold text-blue-900 mb-4 text-center">IPS Avançado</h3>
+              <h3 className="text-2xl font-bold text-blue-900 mb-4 text-center">Proteção Total  Avançado</h3>
               <p className="text-gray-700 mb-6 text-center leading-relaxed">
                 Bloqueio em tempo real de malware, rastreadores e conexões suspeitas com inteligência artificial de última geração
               </p>
@@ -381,14 +382,14 @@ export default function Home() {
               <thead className="bg-gradient-to-r from-blue-900 to-red-500 text-white">
                 <tr>
                   <th className="px-8 py-6 text-left font-bold text-lg">Funcionalidade</th>
-                  <th className="px-8 py-6 text-center font-bold text-lg">Projeto Coruja</th>
+                  <th className="px-8 py-6 text-center font-bold text-lg">Coruja App</th>
                   <th className="px-8 py-6 text-center font-bold text-lg">Google Family</th>
                   <th className="px-8 py-6 text-center font-bold text-lg">Outros</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr className="hover:bg-blue-50 transition-colors duration-200">
-                  <td className="px-8 py-6 font-semibold text-gray-900">IPS Integrado</td>
+                  <td className="px-8 py-6 font-semibold text-gray-900">Proteção Total  Integrado</td>
                   <td className="px-8 py-6 text-center"><i className="fas fa-check-circle text-green-500 text-2xl"></i></td>
                   <td className="px-8 py-6 text-center"><i className="fas fa-times-circle text-red-500 text-2xl"></i></td>
                   <td className="px-8 py-6 text-center"><i className="fas fa-times-circle text-red-500 text-2xl"></i></td>
@@ -407,7 +408,7 @@ export default function Home() {
                 </tr>
                 <tr className="hover:bg-blue-50 transition-colors duration-200 bg-green-50">
                   <td className="px-8 py-6 font-semibold text-gray-900">Preço Mensal</td>
-                  <td className="px-8 py-6 text-center font-bold text-blue-900 text-xl">R$ 19,90</td>
+                  <td className="px-8 py-6 text-center font-bold text-blue-900 text-xl">R$ 9,90</td>
                   <td className="px-8 py-6 text-center font-semibold text-gray-700">Grátis*</td>
                   <td className="px-8 py-6 text-center font-semibold text-gray-700">R$ 49-89</td>
                 </tr>
@@ -425,7 +426,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">O Que Nossos Clientes Dizem</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-blue-900 mx-auto mb-8"></div>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Mais de 50.000 famílias confiam no Projeto Coruja para proteger seus entes queridos
+              Mais de 50.000 famílias confiam no Coruja App para proteger seus entes queridos
             </p>
           </div>
           
@@ -437,7 +438,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "O Projeto Coruja transformou nossa relação com a tecnologia em casa. Agora tenho paz de espírito sabendo que meus filhos estão protegidos online."
+                "O Coruja App transformou nossa relação com a tecnologia em casa. Agora tenho paz de espírito sabendo que meus filhos estão protegidos online."
               </p>
               <div className="flex items-center space-x-4">
                 <img 
@@ -466,7 +467,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "Como especialista em TI, posso afirmar que o Projeto Coruja tem a melhor tecnologia de segurança que já vi em uma solução familiar."
+                "Como especialista em TI, posso afirmar que o Coruja App tem a melhor tecnologia de segurança que já vi em uma solução familiar."
               </p>
               <div className="flex items-center space-x-4">
                 <img 
@@ -560,7 +561,7 @@ export default function Home() {
             </h2>
             <div className="section-divider bg-red-500 mb-8"></div>
             <p className="text-2xl mb-12 opacity-90" data-testid="text-download-subtitle">
-              Baixe o Projeto Coruja e tenha 10 dias grátis para experimentar nossa proteção completa.
+              Baixe o Coruja App e tenha 10 dias grátis para experimentar nossa proteção completa.
             </p>
             
             {/* Pricing Cards */}
@@ -568,11 +569,11 @@ export default function Home() {
               {/* Basic Plan */}
               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20" data-testid="card-basic">
                 <h3 className="text-2xl font-bold mb-4">Plano Básico</h3>
-                <div className="text-4xl font-bold mb-2">R$ 19,90</div>
+                <div className="text-4xl font-bold mb-2">R$ 9,90</div>
                 <div className="text-red-400 mb-6">por mês</div>
                 <ul className="space-y-3 mb-8 text-left">
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Até 3 dispositivos</li>
-                  <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>IPS básico</li>
+                  <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Proteção Total  básico</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Controle parental</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Relatórios semanais</li>
                 </ul>
@@ -590,11 +591,11 @@ export default function Home() {
                   MAIS POPULAR
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Plano Premium</h3>
-                <div className="text-4xl font-bold mb-2">R$ 39,90</div>
+                <div className="text-4xl font-bold mb-2">R$ 24,90</div>
                 <div className="text-red-400 mb-6">por mês</div>
                 <ul className="space-y-3 mb-8 text-left">
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Dispositivos ilimitados</li>
-                  <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>IPS avançado</li>
+                  <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Proteção Total  avançado</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Controle total</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>VPN integrada</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Relatórios em tempo real</li>
@@ -610,7 +611,7 @@ export default function Home() {
               {/* Family Plan */}
               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20" data-testid="card-family">
                 <h3 className="text-2xl font-bold mb-4">Plano Família</h3>
-                <div className="text-4xl font-bold mb-2">R$ 59,90</div>
+                <div className="text-4xl font-bold mb-2">R$ 39,99</div>
                 <div className="text-red-400 mb-6">por mês</div>
                 <ul className="space-y-3 mb-8 text-left">
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Tudo do Premium</li>

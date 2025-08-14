@@ -38,7 +38,7 @@ const features: ComparisonFeature[] = [
 ];
 
 const pricing = {
-  coruja: 'R$ 19,90',
+  coruja: 'R$ 9,90',
   googleFamily: 'Grátis',
   bark: 'R$ 49,90',
   mspy: 'R$ 89,90',
@@ -58,7 +58,7 @@ export default function ComparisonTable() {
         <thead className="bg-blue-900 text-white">
           <tr>
             <th className="px-6 py-4 text-left font-bold" data-testid="header-features">Funcionalidades</th>
-            <th className="px-6 py-4 text-center font-bold" data-testid="header-coruja">Projeto Coruja</th>
+            <th className="px-6 py-4 text-center font-bold" data-testid="header-coruja">Coruja App</th>
             <th className="px-6 py-4 text-center font-bold" data-testid="header-google">Google Family Link</th>
             <th className="px-6 py-4 text-center font-bold" data-testid="header-bark">Bark</th>
             <th className="px-6 py-4 text-center font-bold" data-testid="header-mspy">mSpy</th>

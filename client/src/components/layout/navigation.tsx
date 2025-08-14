@@ -80,15 +80,13 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/">
             <div 
-              className="nav-logo flex items-center space-x-2 cursor-pointer premium-hover" 
+              className="nav-logo flex items-center space-x-2 cursor-pointer" 
               data-testid="logo"
-              data-magnetic
-              data-cursor="link"
             >
-              <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center floating-animation">
+              <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
                 <OwlIcon size="lg" className="text-white" />
               </div>
-              <span className="text-white font-bold text-xl">Projeto Coruja</span>
+              <span className="text-white font-bold text-xl">Coruja App</span>
             </div>
           </Link>
           
@@ -106,6 +104,20 @@ export default function Navigation() {
                 onMouseLeave={(e) => handleNavItemHover(e, false)}
               >
                 Home
+              </a>
+            </Link>
+            <Link href="/about">
+              <a 
+                className={`nav-item text-white hover:text-red-400 transition-colors duration-300 font-medium premium-hover ${
+                  location === '/about' ? 'text-red-400' : ''
+                }`}
+                data-testid="nav-about"
+                data-cursor="link"
+                href="/about"
+                onMouseEnter={(e) => handleNavItemHover(e, true)}
+                onMouseLeave={(e) => handleNavItemHover(e, false)}
+              >
+                Quem Somos
               </a>
             </Link>
             <Link href="/features">
@@ -134,20 +146,6 @@ export default function Navigation() {
                 onMouseLeave={(e) => handleNavItemHover(e, false)}
               >
                 Demo Interativa
-              </a>
-            </Link>
-            <Link href="/about">
-              <a 
-                className={`nav-item text-white hover:text-red-400 transition-colors duration-300 font-medium premium-hover ${
-                  location === '/about' ? 'text-red-400' : ''
-                }`}
-                data-testid="nav-about"
-                data-cursor="link"
-                href="/about"
-                onMouseEnter={(e) => handleNavItemHover(e, true)}
-                onMouseLeave={(e) => handleNavItemHover(e, false)}
-              >
-                Quem Somos
               </a>
             </Link>
             <Link href="/contact">
@@ -203,6 +201,16 @@ export default function Navigation() {
                   Home
                 </a>
               </Link>
+              <Link href="/about">
+                <a 
+                  className={`text-white hover:text-red-400 transition-colors duration-300 ${
+                    location === '/about' ? 'text-red-400' : ''
+                  }`}
+                  data-testid="mobile-nav-about"
+                >
+                  Quem Somos
+                </a>
+              </Link>
               <Link href="/features">
                 <a 
                   className={`text-white hover:text-red-400 transition-colors duration-300 ${
@@ -221,16 +229,6 @@ export default function Navigation() {
                   data-testid="mobile-nav-demo"
                 >
                   Demo Interativa
-                </a>
-              </Link>
-              <Link href="/about">
-                <a 
-                  className={`text-white hover:text-red-400 transition-colors duration-300 ${
-                    location === '/about' ? 'text-red-400' : ''
-                  }`}
-                  data-testid="mobile-nav-about"
-                >
-                  Quem Somos
                 </a>
               </Link>
               <Link href="/contact">

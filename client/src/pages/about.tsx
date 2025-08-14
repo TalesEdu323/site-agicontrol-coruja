@@ -14,11 +14,11 @@ export default function About() {
       <section ref={heroRef} className="py-20 hero-gradient text-white" data-testid="about-hero">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold mb-4" data-testid="text-about-title">
-              A Origem do Projeto Coruja
+            <h1 className="text-5xl font-bold mb-4 text-white" data-testid="text-about-title">
+              A Origem do Coruja App
             </h1>
             <div className="section-divider bg-red-500 mb-6"></div>
-            <p className="text-xl max-w-3xl mx-auto opacity-90" data-testid="text-about-subtitle">
+            <p className="text-xl max-w-3xl mx-auto opacity-90 text-white" data-testid="text-about-subtitle">
               Inspirados pela necessidade de proteger suas próprias famílias, Wililian e Carlos criaram uma solução que combina tecnologia avançada com cuidado humano.
             </p>
           </div>
@@ -31,27 +31,21 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 mb-20">
             {/* Wililian */}
             <div className="text-center" data-testid="founder-wililian">
-              <img 
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" 
-                alt="Wililian - Co-fundador" 
-                className="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-4 border-red-500 shadow-xl"
-                data-testid="img-wililian"
-              />
+              <div className="w-48 h-48 rounded-full mx-auto mb-6 flex items-center justify-center bg-red-500 border-4 border-red-500 shadow-xl">
+                <i className="fas fa-user text-white text-6xl"></i>
+              </div>
               <h3 className="text-2xl font-bold mb-2" data-testid="text-wililian-name">Wililian Silva</h3>
               <p className="text-red-500 font-medium mb-4" data-testid="text-wililian-role">Co-fundador & CTO</p>
               <p className="text-gray-700 leading-relaxed" data-testid="text-wililian-bio">
-                Especialista em segurança cibernética com mais de 15 anos de experiência. Pai de dois filhos, criou o Projeto Coruja para proteger sua própria família no mundo digital.
+                Especialista em segurança cibernética com mais de 15 anos de experiência. Pai de dois filhos, criou o Coruja App para proteger sua própria família no mundo digital.
               </p>
             </div>
             
             {/* Carlos */}
             <div className="text-center" data-testid="founder-carlos">
-              <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" 
-                alt="Carlos - Co-fundador" 
-                className="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-4 border-red-500 shadow-xl"
-                data-testid="img-carlos"
-              />
+              <div className="w-48 h-48 rounded-full mx-auto mb-6 flex items-center justify-center bg-red-500 border-4 border-red-500 shadow-xl">
+                <i className="fas fa-user text-white text-6xl"></i>
+              </div>
               <h3 className="text-2xl font-bold mb-2" data-testid="text-carlos-name">Carlos Mendes</h3>
               <p className="text-red-500 font-medium mb-4" data-testid="text-carlos-role">Co-fundador & CEO</p>
               <p className="text-gray-700 leading-relaxed" data-testid="text-carlos-bio">
@@ -68,12 +62,11 @@ export default function About() {
             </div>
             
             <div className="max-w-4xl mx-auto">
-              <p className="text-lg leading-relaxed mb-6 text-gray-700" data-testid="text-story-p1">
-                A AGICONTROL nasceu da experiência pessoal de dois pais preocupados com a segurança digital de suas famílias. 
-                Wililian e Carlos perceberam que as soluções existentes eram ou muito complexas ou muito limitadas.
+              <p className="text-lg leading-relaxed mb-6 text-gray-800" data-testid="text-story-p1">
+                A AGICONTROL nasceu da experiência pessoal de dois pais preocupados com a segurança digital de suas famílias. Wililian e Carlos perceberam que as soluções existentes eram ou muito complexas ou muito limitadas.
               </p>
               <p className="text-lg leading-relaxed mb-6 text-gray-700" data-testid="text-story-p2">
-                O Projeto Coruja simboliza a vigilância protetora de uma coruja - sempre alerta, mas nunca intrusiva. 
+                O Coruja App simboliza a vigilância protetora de uma coruja - sempre alerta, mas nunca intrusiva. 
                 Combinamos a tecnologia de ponta em segurança cibernética com a intuição parental, criando uma solução 
                 que protege sem limitar o crescimento digital das crianças.
               </p>

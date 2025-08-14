@@ -20,13 +20,12 @@ export default function Features() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
             <div className="space-y-8" data-animate>
               <div data-animate>
-                <h2 className="text-4xl font-bold text-blue-900 mb-4" data-testid="text-ips-title" data-text-reveal>
+                <h2 className="text-4xl font-bold text-blue-900 mb-4" data-testid="text-ips-title">
                   Sistema IPS de Última Geração
                 </h2>
                 <div className="section-divider mb-6" data-animate></div>
-                <p className="text-xl text-gray-700 leading-relaxed" data-testid="text-ips-description" data-animate>
-                  Nossa tecnologia de Prevenção de Intrusão (IPS) monitora e bloqueia ameaças em tempo real, 
-                  protegendo todos os dispositivos da sua família contra malware, phishing e ataques cibernéticos.
+                <p className="text-xl text-gray-800 leading-relaxed" data-testid="text-ips-description">
+                  Nossa tecnologia de Prevenção de Intrusão (IPS) monitora e bloqueia ameaças em tempo real, protegendo todos os dispositivos da sua família contra malware, phishing e ataques cibernéticos.
                 </p>
               </div>
               
@@ -42,7 +41,7 @@ export default function Features() {
               </div>
               
               <button 
-                className="bg-blue-900 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-800 transition-all duration-300 premium-hover"
+                className="bg-blue-900 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-800 transition-all duration-200"
                 data-testid="button-ips-demo"
                 data-magnetic
                 data-cursor="button"

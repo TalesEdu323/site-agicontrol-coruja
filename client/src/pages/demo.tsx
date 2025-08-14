@@ -92,7 +92,7 @@ export default function Demo() {
   const [children, setChildren] = useState<Child[]>(initialChildren);
   const [alerts, setAlerts] = useState<SecurityAlert[]>(initialAlerts);
   const [selectedChild, setSelectedChild] = useState<string>('1');
-  const [ipsEnabled, setIpsEnabled] = useState(true);
+  const [protecaoTotalEnabled, setProtecaoTotalEnabled] = useState(true);
   const [realTimeMonitoring, setRealTimeMonitoring] = useState(true);
   const [allowedApps, setAllowedApps] = useState<string[]>(['Khan Academy', 'YouTube Kids', 'WhatsApp']);
   
@@ -339,13 +339,13 @@ export default function Demo() {
                 <CardContent className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium">IPS Ativo</p>
+                      <p className="font-medium">Proteção Total Ativo</p>
                       <p className="text-sm text-gray-600">Proteção em tempo real</p>
                     </div>
                     <Switch 
-                      checked={ipsEnabled}
-                      onCheckedChange={setIpsEnabled}
-                      data-testid="ips-toggle"
+                      checked={protecaoTotalEnabled}
+                      onCheckedChange={setProtecaoTotalEnabled}
+                      data-testid="protecao-total-toggle"
                     />
                   </div>
                   
@@ -498,7 +498,7 @@ export default function Demo() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4">Gostou do que viu?</h2>
           <p className="text-xl mb-8 opacity-90">
-            Baixe o Projeto Coruja agora e tenha 10 dias grátis para proteger sua família.
+            Baixe o Coruja App agora e tenha 10 dias grátis para proteger sua família.
           </p>
           <div className="flex justify-center space-x-4">
             <Button 

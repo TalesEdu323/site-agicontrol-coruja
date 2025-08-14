@@ -284,7 +284,7 @@ export default function Contact() {
                     className="block p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300"
                     data-testid="link-faq-install"
                   >
-                    <h4 className="font-medium text-gray-700">Como instalar o Projeto Coruja?</h4>
+                    <h4 className="font-medium text-gray-700">Como instalar o Coruja App?</h4>
                     <p className="text-sm text-gray-600">Guia completo de instalação</p>
                   </a>
                   <a 

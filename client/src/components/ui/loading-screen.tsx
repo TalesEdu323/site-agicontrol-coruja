@@ -128,7 +128,7 @@ export default function LoadingScreen({ isLoading, onComplete }: LoadingScreenPr
           <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/30">
             <OwlIcon size="3xl" className="text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Projeto Coruja</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">Coruja App</h1>
           <p className="text-blue-100 text-lg">Carregando proteção avançada...</p>
         </div>
 

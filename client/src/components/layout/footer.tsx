@@ -3,7 +3,7 @@ import OwlIcon from "../ui/owl-icon";
 
 export default function Footer() {
   return (
-    <footer className="py-12 bg-gray-800 text-white" data-testid="footer">
+    <footer className="py-12 bg-blue-900 text-white" data-testid="footer">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
@@ -12,41 +12,11 @@ export default function Footer() {
               <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
                 <OwlIcon size="md" className="text-white" />
               </div>
-              <span className="font-bold text-xl">Projeto Coruja</span>
+              <span className="font-bold text-xl">Coruja App</span>
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm text-white leading-relaxed">
               AGICONTROL - Proteção inteligente para famílias conectadas. Segurança avançada com controle parental intuitivo.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="#" 
-                className="text-gray-400 hover:text-red-400 transition-colors duration-300"
-                data-testid="footer-facebook"
-              >
-                <i className="fab fa-facebook-f text-xl"></i>
-              </a>
-              <a 
-                href="#" 
-                className="text-gray-400 hover:text-red-400 transition-colors duration-300"
-                data-testid="footer-instagram"
-              >
-                <i className="fab fa-instagram text-xl"></i>
-              </a>
-              <a 
-                href="#" 
-                className="text-gray-400 hover:text-red-400 transition-colors duration-300"
-                data-testid="footer-twitter"
-              >
-                <i className="fab fa-twitter text-xl"></i>
-              </a>
-              <a 
-                href="#" 
-                className="text-gray-400 hover:text-red-400 transition-colors duration-300"
-                data-testid="footer-linkedin"
-              >
-                <i className="fab fa-linkedin-in text-xl"></i>
-              </a>
-            </div>
           </div>
           
           {/* Product */}
@@ -55,23 +25,23 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/features">
-                  <a className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-features">
+                  <a className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-features">
                     Funcionalidades
                   </a>
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-pricing">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-pricing">
                   Preços
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-security">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-security">
                   Segurança
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-updates">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-updates">
                   Atualizações
                 </a>
               </li>
@@ -84,23 +54,23 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/contact">
-                  <a className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-contact">
+                  <a className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-contact">
                     Contato
                   </a>
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-faq">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-faq">
                   FAQ
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-guides">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-guides">
                   Guias
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-status">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-status">
                   Status do Sistema
                 </a>
               </li>
@@ -112,22 +82,22 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4">Legal</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-terms">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-terms">
                   Termos de Uso
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-privacy">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-privacy">
                   Política de Privacidade
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-lgpd">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-lgpd">
                   LGPD
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-300" data-testid="footer-cookies">
+                <a href="#" className="text-white hover:text-red-400 transition-colors duration-300" data-testid="footer-cookies">
                   Cookies
                 </a>
               </li>
@@ -135,9 +105,9 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-gray-700 pt-8 text-center">
-          <p className="text-sm text-gray-400" data-testid="footer-copyright">
-            © 2024 AGICONTROL - Projeto Coruja. Todos os direitos reservados. 
+        <div className="border-t border-white pt-8 text-center">
+          <p className="text-sm text-white" data-testid="footer-copyright">
+            © 2024 AGICONTROL - Coruja App. Todos os direitos reservados. de 
             <span className="ml-4">CNPJ: 00.000.000/0001-00</span>
           </p>
         </div>
