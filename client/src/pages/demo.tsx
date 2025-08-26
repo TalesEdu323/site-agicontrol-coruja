@@ -168,44 +168,24 @@ export default function Demo() {
   };
 
   return (
-    <div className="pt-20">
+  <div className="pt-[80px]">
       {/* Hero Section */}
-      <section ref={demoRef} className="py-16 hero-gradient text-white" data-testid="demo-hero">
+  <section className="py-12 mt-4 bg-white" data-testid="demo-hero">
         <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold mb-4" data-testid="text-demo-title">
+            <h1 className="text-4xl font-bold text-gray-900 mb-6" data-testid="text-demo-title">
               Demonstração Interativa
             </h1>
             <div className="section-divider bg-red-500 mb-6"></div>
-            <p className="text-xl max-w-3xl mx-auto opacity-90" data-testid="text-demo-subtitle">
+            <p className="text-lg max-w-2xl mx-auto text-gray-700" data-testid="text-demo-subtitle">
               Experimente nosso painel de controle parental em tempo real. Teste todas as funcionalidades e veja como protegemos sua família.
             </p>
-          </div>
-          
-          {/* Quick Stats */}
-          <div className="grid md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center" data-testid="stat-children">
-              <div className="text-3xl font-bold mb-2">3</div>
-              <div className="text-sm opacity-80">Filhos Monitorados</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center" data-testid="stat-threats">
-              <div className="text-3xl font-bold mb-2">247</div>
-              <div className="text-sm opacity-80">Ameaças Bloqueadas</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center" data-testid="stat-time">
-              <div className="text-3xl font-bold mb-2">6h 30m</div>
-              <div className="text-sm opacity-80">Tempo Total Hoje</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center" data-testid="stat-alerts">
-              <div className="text-3xl font-bold mb-2">{alerts.length}</div>
-              <div className="text-sm opacity-80">Alertas Ativos</div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Interactive Dashboard */}
-      <section ref={controlsRef} className="py-20 bg-gray-50" data-testid="interactive-dashboard">
+  <section ref={controlsRef} className="py-20 mt-8 bg-gray-50" data-testid="interactive-dashboard">
         <div className="container mx-auto px-8 lg:px-16">
           <div className="grid lg:grid-cols-3 gap-8">
             
@@ -226,7 +206,7 @@ export default function Demo() {
                     {children.map((child) => (
                       <div 
                         key={child.id}
-                        className={`p-6 border-2 rounded-xl cursor-pointer transition-all duration-300 ${
+                        className={`p-6 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105 ${
                           selectedChild === child.id 
                             ? 'border-blue-900 bg-blue-50' 
                             : 'border-gray-200 hover:border-blue-300'
@@ -441,7 +421,7 @@ export default function Demo() {
       </section>
 
       {/* Security Alerts */}
-      <section ref={alertsRef} className="py-20 bg-white" data-testid="security-alerts">
+  <section ref={alertsRef} className="py-20 mt-8 bg-white" data-testid="security-alerts">
         <div className="container mx-auto px-8 lg:px-16">
           <Card>
             <CardHeader>
@@ -459,7 +439,7 @@ export default function Demo() {
                 {alerts.map((alert) => (
                   <div 
                     key={alert.id}
-                    className={`p-4 border rounded-lg ${getSeverityColor(alert.severity)}`}
+                    className={`p-4 border rounded-lg ${getSeverityColor(alert.severity)} ${alert.severity === 'high' ? 'animate-pulse' : ''}`}
                     data-testid={`alert-${alert.id}`}
                   >
                     <div className="flex items-center justify-between">
@@ -494,7 +474,7 @@ export default function Demo() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 hero-gradient text-white" data-testid="demo-cta">
+  <section className="py-16 mt-8 bg-white" data-testid="demo-cta">
         <div className="container mx-auto px-8 lg:px-16 text-center">
           <h2 className="text-4xl font-bold mb-4">Gostou do que viu?</h2>
           <p className="text-xl mb-8 opacity-90">
@@ -503,7 +483,7 @@ export default function Demo() {
           <div className="flex justify-center space-x-4">
             <Button 
               size="lg"
-              className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 text-lg"
+              className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 text-lg transition-transform transform hover:scale-105"
               data-testid="download-demo-cta"
             >
               <i className="fas fa-download mr-2"></i>
@@ -512,7 +492,7 @@ export default function Demo() {
             <Button 
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg"
+              className="border-blue-900 text-blue-900 hover:bg-red-500 hover:text-white px-8 py-4 text-lg"
               data-testid="contact-demo-cta"
             >
               <i className="fas fa-phone mr-2"></i>

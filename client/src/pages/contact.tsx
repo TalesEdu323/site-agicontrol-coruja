@@ -55,17 +55,17 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-[80px]">
       {/* Hero Section */}
-      <section className="py-20 bg-gray-50" data-testid="contact-hero">
+      <section className="py-12 mt-4 bg-white" data-testid="contact-hero">
         <div className="container mx-auto px-8 lg:px-16">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-blue-900 mb-4" data-testid="text-contact-title">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl font-semibold mb-6" data-testid="text-contact-title">
               Entre em Contato
             </h1>
-            <div className="section-divider mb-6"></div>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto" data-testid="text-contact-subtitle">
-              Nossa equipe está pronta para ajudar você a proteger sua família. Entre em contato para suporte técnico ou dúvidas comerciais.
+            <div className="section-divider bg-red-500 mb-6"></div>
+            <p className="text-base max-w-2xl mx-auto text-gray-700">
+              Estamos aqui para ajudar você.
             </p>
           </div>
         </div>

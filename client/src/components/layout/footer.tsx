@@ -4,7 +4,7 @@ import OwlIcon from "../ui/owl-icon";
 export default function Footer() {
   return (
     <footer className="py-12 bg-blue-900 text-white" data-testid="footer">
-      <div className="container mx-auto px-4">
+  <div className="container mx-auto px-6 md:px-12 lg:px-24">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="space-y-4" data-testid="footer-company">
@@ -107,7 +107,7 @@ export default function Footer() {
         
         <div className="border-t border-white pt-8 text-center">
           <p className="text-sm text-white" data-testid="footer-copyright">
-            © 2024 AGICONTROL - Coruja App. Todos os direitos reservados. de 
+            © 2025 AGICONTROL - Coruja App. Todos os direitos reservados
             <span className="ml-4">CNPJ: 00.000.000/0001-00</span>
           </p>
         </div>

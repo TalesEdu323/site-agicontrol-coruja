@@ -17,7 +17,7 @@ export default function Home() {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="min-h-screen hero-gradient relative overflow-hidden flex items-center pt-20"
+  className="min-h-screen hero-gradient text-white relative overflow-hidden flex items-center pt-20"
         data-testid="hero-section"
         data-hero
       >
@@ -208,7 +208,7 @@ export default function Home() {
             
             <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 card-hover" data-testid="tech-cloud">
               <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-2xl">
-                <i className="fas fa-cloud-shield text-white text-3xl"></i>
+                <i className="fas fa-cloud text-white text-3xl"></i>
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Cloud Híbrida</h3>
               <p className="text-white/80 text-center leading-relaxed mb-6">
@@ -545,7 +545,7 @@ export default function Home() {
       </section>
 
       {/* Download/CTA Section */}
-      <section ref={downloadRef} className="py-20 hero-gradient text-white relative overflow-hidden" data-testid="download-section">
+  <section ref={downloadRef} className="py-20 hero-gradient text-white relative overflow-hidden" data-testid="download-section">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-red-500/30"></div>
         <AdvancedParticles 
           count={15}

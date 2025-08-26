@@ -68,6 +68,8 @@ export default function Navigation() {
     }
   };
 
+  const isActive = (path: string) => location === path;
+
   return (
     <nav 
       className={`fixed top-0 w-full z-50 transition-all duration-300 navbar-slide ${
@@ -75,7 +77,7 @@ export default function Navigation() {
       }`}
       data-testid="navigation"
     >
-      <div className="container mx-auto px-4 py-4">
+  <div className="container mx-auto px-6 md:px-12 lg:px-24 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
@@ -95,13 +97,10 @@ export default function Navigation() {
             <Link href="/">
               <a 
                 className={`nav-item text-white hover:text-red-400 transition-colors duration-300 font-medium premium-hover ${
-                  location === '/' ? 'text-red-400' : ''
+                  isActive('/') ? 'text-red-400' : ''
                 }`}
                 data-testid="nav-home"
                 data-cursor="link"
-                href="/"
-                onMouseEnter={(e) => handleNavItemHover(e, true)}
-                onMouseLeave={(e) => handleNavItemHover(e, false)}
               >
                 Home
               </a>
@@ -109,13 +108,10 @@ export default function Navigation() {
             <Link href="/about">
               <a 
                 className={`nav-item text-white hover:text-red-400 transition-colors duration-300 font-medium premium-hover ${
-                  location === '/about' ? 'text-red-400' : ''
+                  isActive('/about') ? 'text-red-400' : ''
                 }`}
                 data-testid="nav-about"
                 data-cursor="link"
-                href="/about"
-                onMouseEnter={(e) => handleNavItemHover(e, true)}
-                onMouseLeave={(e) => handleNavItemHover(e, false)}
               >
                 Quem Somos
               </a>
@@ -123,27 +119,21 @@ export default function Navigation() {
             <Link href="/features">
               <a 
                 className={`nav-item text-white hover:text-red-400 transition-colors duration-300 font-medium premium-hover ${
-                  location === '/features' ? 'text-red-400' : ''
+                  isActive('/features') ? 'text-red-400' : ''
                 }`}
                 data-testid="nav-features"
                 data-cursor="link"
-                href="/features"
-                onMouseEnter={(e) => handleNavItemHover(e, true)}
-                onMouseLeave={(e) => handleNavItemHover(e, false)}
               >
-                IPS & Controle
+                Proteção Apenas & Controle
               </a>
             </Link>
             <Link href="/demo">
               <a 
                 className={`nav-item text-white hover:text-red-400 transition-colors duration-300 font-medium premium-hover ${
-                  location === '/demo' ? 'text-red-400' : ''
+                  isActive('/demo') ? 'text-red-400' : ''
                 }`}
                 data-testid="nav-demo"
                 data-cursor="link"
-                href="/demo"
-                onMouseEnter={(e) => handleNavItemHover(e, true)}
-                onMouseLeave={(e) => handleNavItemHover(e, false)}
               >
                 Demo Interativa
               </a>
@@ -151,13 +141,10 @@ export default function Navigation() {
             <Link href="/contact">
               <a 
                 className={`nav-item text-white hover:text-red-400 transition-colors duration-300 font-medium premium-hover ${
-                  location === '/contact' ? 'text-red-400' : ''
+                  isActive('/contact') ? 'text-red-400' : ''
                 }`}
                 data-testid="nav-contact"
                 data-cursor="link"
-                href="/contact"
-                onMouseEnter={(e) => handleNavItemHover(e, true)}
-                onMouseLeave={(e) => handleNavItemHover(e, false)}
               >
                 Contato
               </a>

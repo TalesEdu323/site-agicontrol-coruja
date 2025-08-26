@@ -8,7 +8,7 @@ interface ComparisonFeature {
 
 const features: ComparisonFeature[] = [
   {
-    name: 'IPS Integrado',
+  name: 'Proteção Total Integrada',
     coruja: true,
     googleFamily: false,
     bark: false,

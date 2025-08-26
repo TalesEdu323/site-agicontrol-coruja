@@ -9,16 +9,16 @@ export default function About() {
   useAdvancedScrollAnimations([heroRef, foundersRef, valuesRef]);
 
   return (
-    <div className="pt-20">
+    <div className="pt-[80px]">
       {/* Hero Section */}
-      <section ref={heroRef} className="py-20 hero-gradient text-white" data-testid="about-hero">
+  <section className="py-12 mt-4 bg-white" data-testid="about-hero">
         <div className="container mx-auto px-8 lg:px-16">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold mb-4 text-white" data-testid="text-about-title">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl font-semibold mb-6" data-testid="text-about-title">
               A Origem do Coruja App
             </h1>
             <div className="section-divider bg-red-500 mb-6"></div>
-            <p className="text-xl max-w-3xl mx-auto opacity-90 text-white" data-testid="text-about-subtitle">
+            <p className="text-base max-w-2xl mx-auto text-gray-700" data-testid="text-about-subtitle">
               Inspirados pela necessidade de proteger suas próprias famílias, Wililian e Carlos criaram uma solução que combina tecnologia avançada com cuidado humano.
             </p>
           </div>
@@ -37,7 +37,7 @@ export default function About() {
               <h3 className="text-2xl font-bold mb-2" data-testid="text-wililian-name">Wililian Silva</h3>
               <p className="text-red-500 font-medium mb-4" data-testid="text-wililian-role">Co-fundador & CTO</p>
               <p className="text-gray-700 leading-relaxed" data-testid="text-wililian-bio">
-                Especialista em segurança cibernética com mais de 15 anos de experiência. Pai de dois filhos, criou o Coruja App para proteger sua própria família no mundo digital.
+               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
               </p>
             </div>
             
@@ -49,8 +49,7 @@ export default function About() {
               <h3 className="text-2xl font-bold mb-2" data-testid="text-carlos-name">Carlos Mendes</h3>
               <p className="text-red-500 font-medium mb-4" data-testid="text-carlos-role">Co-fundador & CEO</p>
               <p className="text-gray-700 leading-relaxed" data-testid="text-carlos-bio">
-                Empreendedor serial e especialista em produtos digitais. Acredita que a tecnologia deve servir às famílias, não controlá-las. Lidera a visão estratégica da AGICONTROL.
-              </p>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.              </p>
             </div>
           </div>
           
