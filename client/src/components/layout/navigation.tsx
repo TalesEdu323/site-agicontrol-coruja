@@ -124,7 +124,7 @@ export default function Navigation() {
                 data-testid="nav-features"
                 data-cursor="link"
               >
-                Proteção Apenas & Controle
+                Proteção & Controle
               </a>
             </Link>
             <Link href="/demo">
