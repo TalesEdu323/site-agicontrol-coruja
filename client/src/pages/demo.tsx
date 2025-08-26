@@ -171,7 +171,7 @@ export default function Demo() {
     <div className="pt-20">
       {/* Hero Section */}
       <section ref={demoRef} className="py-16 hero-gradient text-white" data-testid="demo-hero">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold mb-4" data-testid="text-demo-title">
               Demonstração Interativa
@@ -206,7 +206,7 @@ export default function Demo() {
 
       {/* Interactive Dashboard */}
       <section ref={controlsRef} className="py-20 bg-gray-50" data-testid="interactive-dashboard">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="grid lg:grid-cols-3 gap-8">
             
             {/* Children Overview */}
@@ -442,7 +442,7 @@ export default function Demo() {
 
       {/* Security Alerts */}
       <section ref={alertsRef} className="py-20 bg-white" data-testid="security-alerts">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
@@ -495,7 +495,7 @@ export default function Demo() {
 
       {/* Call to Action */}
       <section className="py-16 hero-gradient text-white" data-testid="demo-cta">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-8 lg:px-16 text-center">
           <h2 className="text-4xl font-bold mb-4">Gostou do que viu?</h2>
           <p className="text-xl mb-8 opacity-90">
             Baixe o Coruja App agora e tenha 10 dias grátis para proteger sua família.

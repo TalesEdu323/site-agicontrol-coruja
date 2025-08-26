@@ -58,7 +58,7 @@ export default function Contact() {
     <div className="pt-20">
       {/* Hero Section */}
       <section className="py-20 bg-gray-50" data-testid="contact-hero">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-blue-900 mb-4" data-testid="text-contact-title">
               Entre em Contato
@@ -73,7 +73,7 @@ export default function Contact() {
 
       {/* Contact Form and Info */}
       <section className="py-20 bg-white" data-testid="contact-form-section">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <section ref={formRef} data-testid="contact-form">

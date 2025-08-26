@@ -12,7 +12,7 @@ export default function About() {
     <div className="pt-20">
       {/* Hero Section */}
       <section ref={heroRef} className="py-20 hero-gradient text-white" data-testid="about-hero">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold mb-4 text-white" data-testid="text-about-title">
               A Origem do Coruja App
@@ -27,7 +27,7 @@ export default function About() {
 
       {/* Founders Section */}
       <section ref={foundersRef} className="py-20 bg-white" data-testid="founders-section">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="grid md:grid-cols-2 gap-12 mb-20">
             {/* Wililian */}
             <div className="text-center" data-testid="founder-wililian">
@@ -81,7 +81,7 @@ export default function About() {
 
       {/* Mission, Vision, Values */}
       <section ref={valuesRef} className="py-20 bg-gray-50" data-testid="values-section">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center" data-testid="value-mission">
               <div className="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6">

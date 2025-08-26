@@ -41,7 +41,7 @@ export default function Home() {
           <div className="w-4 h-4 bg-purple-400 rounded-full opacity-50"></div>
         </div>
         
-        <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="container mx-auto px-8 lg:px-16 py-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
             <div className="text-white space-y-8 slide-in-bottom" data-animate>
@@ -143,7 +143,7 @@ export default function Home() {
 
       {/* Demo Banner */}
       <section className="py-8 bg-red-500 text-white" data-testid="demo-banner">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-4">
               <i className="fas fa-magic text-2xl"></i>
@@ -163,7 +163,7 @@ export default function Home() {
       {/* Technology Excellence Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden" data-testid="technology-section">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-8 lg:px-16 relative z-10">
           <div className="text-center mb-16">
             <span className="text-red-400 font-semibold text-lg mb-4 block">TECNOLOGIA ENTERPRISE</span>
             <h2 className="text-5xl font-bold mb-6" data-testid="text-tech-title">
@@ -226,7 +226,7 @@ export default function Home() {
 
       {/* Industry Recognition */}
       <section ref={recognitionRef} className="py-20 bg-white" data-testid="recognition-section">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Reconhecimento da Indústria</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-blue-900 mx-auto mb-8"></div>
@@ -299,7 +299,7 @@ export default function Home() {
         className="py-20 bg-gray-50"
         data-testid="features-preview"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-16">
             <span className="text-red-500 font-semibold text-lg mb-4 block">FUNCIONALIDADES PREMIUM</span>
             <h2 className="text-4xl font-bold text-blue-900 mb-4" data-testid="text-features-title">
@@ -368,7 +368,7 @@ export default function Home() {
 
       {/* Security Comparison */}
       <section className="py-20 bg-white" data-testid="comparison-section">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Por Que Somos Únicos</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-blue-900 mx-auto mb-8"></div>
@@ -421,7 +421,7 @@ export default function Home() {
 
       {/* Customer Testimonials */}
       <section className="pt-24 pb-20 bg-white" data-testid="testimonials-section">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">O Que Nossos Clientes Dizem</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-blue-900 mx-auto mb-8"></div>
@@ -554,7 +554,7 @@ export default function Home() {
           intensity="low"
           style="floating"
         />
-        <div className="container mx-auto px-4 relative z-10 text-center">
+        <div className="container mx-auto px-8 lg:px-16 relative z-10 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-5xl font-bold mb-6" data-testid="text-download-title">
               Proteja Sua Família Hoje

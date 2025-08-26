@@ -16,7 +16,7 @@ export default function Features() {
     <div className="pt-20">
       {/* IPS Section */}
       <section ref={ipsRef} className="py-20 bg-white" data-testid="ips-section">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
             <div className="space-y-8" data-animate>
               <div data-animate>
@@ -84,7 +84,7 @@ export default function Features() {
 
       {/* Parental Control Section */}
       <section ref={parentalRef} className="py-20 bg-gray-50" data-testid="parental-section">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-blue-900 mb-4" data-testid="text-parental-title">
               Controle Parental Dinâmico
@@ -108,7 +108,7 @@ export default function Features() {
 
       {/* Comparison Table */}
       <section ref={comparisonRef} className="py-20 bg-white" data-testid="comparison-section">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8 lg:px-16">
           <h3 className="text-3xl font-bold text-blue-900 mb-8 text-center" data-testid="text-comparison-title">
             Compare com a Concorrência
           </h3>
