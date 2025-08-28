@@ -487,7 +487,7 @@ export default function Demo() {
               data-testid="download-demo-cta"
             >
               <i className="fas fa-download mr-2"></i>
-              Baixar Agora - Grátis
+              Baixar Agora
             </Button>
             <Button 
               variant="outline"
