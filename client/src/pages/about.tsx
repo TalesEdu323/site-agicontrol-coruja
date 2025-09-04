@@ -37,7 +37,7 @@ export default function About() {
               <h3 className="text-2xl font-bold mb-2" data-testid="text-wililian-name">Wililian Silva</h3>
               <p className="text-red-500 font-medium mb-4" data-testid="text-wililian-role">Co-fundador & CTO</p>
               <p className="text-gray-700 leading-relaxed" data-testid="text-wililian-bio">
-               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                Especialista em segurança cibernética com mais de 15 anos de experiência em ambientes corporativos. Formado em Ciência da Computação, Wililian lidera o desenvolvimento técnico do Coruja App, garantindo que nossa tecnologia esteja sempre na vanguarda da proteção digital familiar.
               </p>
             </div>
             
@@ -49,7 +49,8 @@ export default function About() {
               <h3 className="text-2xl font-bold mb-2" data-testid="text-carlos-name">Carlos Mendes</h3>
               <p className="text-red-500 font-medium mb-4" data-testid="text-carlos-role">Co-fundador & CEO</p>
               <p className="text-gray-700 leading-relaxed" data-testid="text-carlos-bio">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.              </p>
+                Executivo com vasta experiência em gestão de produtos digitais e estratégia de mercado. Carlos é responsável pela visão estratégica do Coruja App, conectando as necessidades reais das famílias com soluções tecnológicas inovadoras. Pai de dois filhos, entende profundamente os desafios da segurança digital familiar.
+              </p>
             </div>
           </div>
           

@@ -55,9 +55,8 @@ export default function Home() {
                 <div className="section-divider mb-8" data-animate></div>
               </div>
               
-              <p className="text-xl lg:text-2xl font-medium text-white leading-relaxed" data-testid="text-hero-subtitle">
-                <span className="text-red-400 font-bold">Proteção Total</span> + <span className="text-white font-bold">Controle Inteligente</span>. 
-                A primeira solução que une Proteção Total  de nível corporativo com controle parental avançado.
+              <p className="text-xl lg:text-2xl font-medium text-white leading-relaxed text-center" data-testid="text-hero-subtitle">
+                Segurança corporativa de alto nível com o cuidado inteligente que sua família merece. A união perfeita entre <span className="text-red-400 font-bold">proteção total</span> e <span className="text-white font-bold">controle inteligente</span>.
               </p>
               
               {/* Premium Trust Indicators */}
@@ -166,23 +165,23 @@ export default function Home() {
         <div className="container mx-auto px-8 lg:px-16 relative z-10">
           <div className="text-center mb-16">
             <span className="text-red-400 font-semibold text-lg mb-4 block">TECNOLOGIA ENTERPRISE</span>
-            <h2 className="text-5xl font-bold mb-6" data-testid="text-tech-title">
-              Segurança de Nível Corporativo para Sua Família
+            <h2 className="text-5xl font-bold mb-6 text-center" data-testid="text-tech-title">
+              Segurança Avançada para Cuidar da Sua Família Online
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-blue-400 mx-auto mb-8"></div>
-            <p className="text-xl opacity-90 max-w-4xl mx-auto leading-relaxed" data-testid="text-tech-subtitle">
-              Utilizamos as mesmas tecnologias que protegem grandes corporações para garantir a segurança digital da sua família
+            <p className="text-xl opacity-90 max-w-4xl mx-auto leading-relaxed text-center" data-testid="text-tech-subtitle">
+              Segurança Avançada transformada em Controle Parental Inteligente
             </p>
           </div>
           
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 card-hover" data-testid="tech-Proteção Total ">
+            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 card-hover" data-testid="tech-protecao-total">
               <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-2xl">
                 <i className="fas fa-shield-virus text-white text-3xl"></i>
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Proteção Total</h3>
               <p className="text-white/80 text-center leading-relaxed mb-6">
-                Sistema de Prevenção de Intrusão com algoritmos utilizados em ambientes governamentais e corporativos de alta segurança
+                Sistema de Prevenção de Intrusão com algoritmos utilizados em ambientes estratégicos de alta segurança
               </p>
               <div className="text-center">
                 <span className="bg-red-500/20 text-red-300 px-4 py-2 rounded-full text-sm font-medium border border-red-500/30">
@@ -302,23 +301,23 @@ export default function Home() {
         <div className="container mx-auto px-8 lg:px-16">
           <div className="text-center mb-16">
             <span className="text-red-500 font-semibold text-lg mb-4 block">FUNCIONALIDADES PREMIUM</span>
-            <h2 className="text-4xl font-bold text-blue-900 mb-4" data-testid="text-features-title">
-              Proteção Completa para Sua Família
+            <h2 className="text-4xl font-bold text-blue-900 mb-4 text-center" data-testid="text-features-title">
+              Proteção para seus aparelhos, Segurança para sua família
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-blue-900 mx-auto mb-8"></div>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto" data-testid="text-features-subtitle">
-              Combine a segurança avançada do Proteção Total  com o controle parental mais inteligente do mercado
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto text-center" data-testid="text-features-subtitle">
+              Combine a segurança avançada do Proteção Total com o controle parental mais inteligente do mercado
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Proteção Total  Feature */}
-            <div className="group bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover relative overflow-hidden" data-testid="card-Proteção Total ">
+            {/* Proteção Total Feature */}
+            <div className="group bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover relative overflow-hidden" data-testid="card-protecao-total">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
               <div className="w-20 h-20 bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-xl group-hover:scale-110 transition-transform duration-300">
                 <i className="fas fa-shield-alt text-white text-3xl"></i>
               </div>
-              <h3 className="text-2xl font-bold text-blue-900 mb-4 text-center">Proteção Total  Avançado</h3>
+              <h3 className="text-2xl font-bold text-blue-900 mb-4 text-center">Proteção Total Avançado</h3>
               <p className="text-gray-700 mb-6 text-center leading-relaxed">
                 Bloqueio em tempo real de malware, rastreadores e conexões suspeitas com inteligência artificial de última geração
               </p>
@@ -389,7 +388,7 @@ export default function Home() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr className="hover:bg-blue-50 transition-colors duration-200">
-                  <td className="px-8 py-6 font-semibold text-gray-900">Proteção Total  Integrado</td>
+                  <td className="px-8 py-6 font-semibold text-gray-900">Proteção Total Integrado</td>
                   <td className="px-8 py-6 text-center"><i className="fas fa-check-circle text-green-500 text-2xl"></i></td>
                   <td className="px-8 py-6 text-center"><i className="fas fa-times-circle text-red-500 text-2xl"></i></td>
                   <td className="px-8 py-6 text-center"><i className="fas fa-times-circle text-red-500 text-2xl"></i></td>
@@ -573,7 +572,7 @@ export default function Home() {
                 <div className="text-red-400 mb-6">por mês</div>
                 <ul className="space-y-3 mb-8 text-left">
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Até 3 dispositivos</li>
-                  <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Proteção Total  básico</li>
+                  <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Proteção Total básico</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Controle parental</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Relatórios semanais</li>
                 </ul>
@@ -595,7 +594,7 @@ export default function Home() {
                 <div className="text-red-400 mb-6">por mês</div>
                 <ul className="space-y-3 mb-8 text-left">
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Dispositivos ilimitados</li>
-                  <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Proteção Total  avançado</li>
+                  <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Proteção Total avançado</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Controle total</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>VPN integrada</li>
                   <li className="flex items-center"><i className="fas fa-check text-green-400 mr-3"></i>Relatórios em tempo real</li>

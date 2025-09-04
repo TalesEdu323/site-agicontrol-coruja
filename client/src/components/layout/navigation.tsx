@@ -205,7 +205,7 @@ export default function Navigation() {
                   }`}
                   data-testid="mobile-nav-features"
                 >
-                  IPS & Controle
+                  Proteção & Controle
                 </a>
               </Link>
               <Link href="/demo">
